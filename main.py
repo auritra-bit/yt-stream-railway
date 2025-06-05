@@ -9,11 +9,15 @@ from flask import Flask
 app = Flask('')
 
 # ===== CONFIGURATION =====
-STREAM_KEY = "15xu-ph9h-a8mt-k62c-19jq"  # From YouTube Studio
+STREAM_KEY = "tu5h-gs55-0dtc-wqfh-4r6p"  # From YouTube Studio
 VIDEOS = [
     "https://pixeldrain.com/api/file/GeLrgc52",
     "https://pixeldrain.com/api/file/rByrPSFj",
     "https://pixeldrain.com/api/file/TVppzDSe",
+    "https://pixeldrain.com/api/file/Xhi9FkTG",
+    "https://pixeldrain.com/api/file/Pyf73sHH",
+    "https://pixeldrain.com/api/file/iyuPipfP",
+    "https://pixeldrain.com/api/file/thXKBcTz",    
     # Add your other videos
     # "https://ia600908.us.archive.org/35/items/1_20250604_20250604_1844/3.mp4",
 ]
