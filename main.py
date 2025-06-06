@@ -11,15 +11,15 @@ app = Flask('')
 # ===== CONFIGURATION =====
 STREAM_KEY = "tu5h-gs55-0dtc-wqfh-4r6p"  # From YouTube Studio
 VIDEOS = [
-    "https://pixeldrain.com/api/file/GeLrgc52",
-    "https://pixeldrain.com/api/file/rByrPSFj",
-    "https://pixeldrain.com/api/file/TVppzDSe",
-    "https://pixeldrain.com/api/file/Xhi9FkTG",
-    "https://pixeldrain.com/api/file/Pyf73sHH",
-    "https://pixeldrain.com/api/file/iyuPipfP",
-    "https://pixeldrain.com/api/file/thXKBcTz",    
+    "https://studyti.b-cdn.net/8.mp4",
+    "https://studyti.b-cdn.net/9.mp4",
+    "https://studyti.b-cdn.net/10.mp4",
+    "https://studyti.b-cdn.net/11.mp4",
+    "https://studyti.b-cdn.net/12.mp4",
+    "https://studyti.b-cdn.net/13.mp4",
+    "https://studyti.b-cdn.net/14.mp4",
     # Add your other videos
-    # "https://ia600908.us.archive.org/35/items/1_20250604_20250604_1844/3.mp4",
+    # "https://studyti.b-cdn.net/14.mp4",  add like this
 ]
 REPL_URL = "https://5a692154-447d-4195-9cb1-f47ffabead49-00-25a5uedmto1an.sisko.replit.dev:3000/"  # Replace with your actual URL
 RESOLUTION = "1280:-2"  # 720p: "1280:-2", 480p: "640:-2"
@@ -30,7 +30,7 @@ VIDEO_BITRATE = "1500k"  # 720p: "1500k", 480p: "1000k"
 
 # Install FFmpeg for Replit
 def install_ffmpeg():
-    print("⏳ Installing FFmpeg for Replit environment...")
+    print("⏳ Installing FFmpeg for Railway environment...")
     try:
         # Install FFmpeg using Nix package manager
         result = subprocess.run("nix-env -iA nixpkgs.ffmpeg",
