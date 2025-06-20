@@ -11,20 +11,13 @@ app = Flask('')
 # ===== CONFIGURATION =====
 STREAM_KEY = "tu5h-gs55-0dtc-wqfh-4r6p"  # From YouTube Studio
 VIDEOS = [
-    "https://studyti.b-cdn.net/18.mp4",
-    "https://studyti.b-cdn.net/19.mp4",
-    "https://studyti.b-cdn.net/20.mp4",
-    "https://studyti.b-cdn.net/21.mp4",
-    "https://studyti.b-cdn.net/22.mp4",
-    "https://studyti.b-cdn.net/23.mp4",
-    "https://studyti.b-cdn.net/24.mp4",
-    "https://studyti.b-cdn.net/8.mp4",
-    "https://studyti.b-cdn.net/9.mp4",
-    "https://studyti.b-cdn.net/10.mp4",
-    "https://studyti.b-cdn.net/11.mp4",
-    "https://studyti.b-cdn.net/12.mp4",
-    "https://studyti.b-cdn.net/13.mp4",
-    "https://studyti.b-cdn.net/14.mp4",
+    "https://kjhg.b-cdn.net/10.mp4",
+    "https://kjhg.b-cdn.net/11.mp4",
+    "https://kjhg.b-cdn.net/12.mp4",
+    "https://kjhg.b-cdn.net/13.mp4",
+    "https://kjhg.b-cdn.net/14.mp4",
+    "https://kjhg.b-cdn.net/8.mp4",
+    "https://kjhg.b-cdn.net/9.mp4",
     # Add your other videos
     # "https://studyti.b-cdn.net/14.mp4",  add like this
 ]
