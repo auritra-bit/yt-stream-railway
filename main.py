@@ -74,39 +74,33 @@ def stream_video(url):
     print(f"🔗 Streaming: {url.split('/')[-1]}")
 
     # FFmpeg command with optimizations
-    cmd = [
+        cmd = [
         "ffmpeg",
         "-re",
-        "-analyzeduration",
-        "10M",  # Faster analysis
-        "-probesize",
-        "32M",  # Larger probe buffer
-        "-rw_timeout",
-        "5000000",  # 5-second timeout
-        "-i",
-        url,
-        "-c:v",
-        "libx264",
-        "-preset",
-        "veryfast",
-        "-b:v",
-        VIDEO_BITRATE,
-        "-maxrate",
-        VIDEO_BITRATE,
-        "-bufsize",
-        "4000k",
-        "-vf",
-        f"scale={RESOLUTION},fps=30",
-        "-c:a",
-        "aac",
-        "-b:a",
-        "128k",
-        "-ar",
-        "44100",
-        "-f",
-        "flv",
+        "-analyzeduration", "10M",  # Faster analysis
+        "-probesize", "32M",        # Larger probe buffer
+
+        # 🔧 ADD THESE FOR INPUT RECONNECT
+        "-reconnect", "1",
+        "-reconnect_streamed", "1",
+        "-reconnect_delay_max", "2",
+
+        "-rw_timeout", "5000000",
+        "-i", url,
+
+        "-c:v", "libx264",
+        "-preset", "veryfast",
+        "-b:v", VIDEO_BITRATE,
+        "-maxrate", VIDEO_BITRATE,
+        "-bufsize", "4000k",
+        "-vf", f"scale={RESOLUTION},fps=30",
+        "-c:a", "aac",
+        "-b:a", "128k",
+        "-ar", "44100",
+        "-f", "flv",
         f"rtmp://a.rtmp.youtube.com/live2/{STREAM_KEY}"
     ]
+
 
     print("🚀 Running command:", " ".join(cmd))
     try:
@@ -119,9 +113,12 @@ def stream_video(url):
                                    universal_newlines=True)
         # Stream FFmpeg output to console
         if process.stdout:
-            for line in process.stdout:
-                if "frame=" in line:
-                    print(line.strip())
+            with open("ffmpeg_log.txt", "a", encoding="utf-8") as log_file:
+                for line in process.stdout:
+                    log_file.write(line)
+                    if "frame=" in line or "bitrate=" in line:
+                        print(line.strip())
+
         else:
             print(
                 "🚨 process.stdout is None. FFmpeg might have failed to start.")
