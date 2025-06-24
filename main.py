@@ -74,13 +74,13 @@ def stream_video(url):
     print(f"🔗 Streaming: {url.split('/')[-1]}")
 
     # FFmpeg command with optimizations
-        cmd = [
+    cmd = [
         "ffmpeg",
         "-re",
         "-analyzeduration", "10M",  # Faster analysis
         "-probesize", "32M",        # Larger probe buffer
 
-        # 🔧 ADD THESE FOR INPUT RECONNECT
+        # 🔧 ADDED: Reconnect options
         "-reconnect", "1",
         "-reconnect_streamed", "1",
         "-reconnect_delay_max", "2",
@@ -100,6 +100,7 @@ def stream_video(url):
         "-f", "flv",
         f"rtmp://a.rtmp.youtube.com/live2/{STREAM_KEY}"
     ]
+
 
 
     print("🚀 Running command:", " ".join(cmd))
